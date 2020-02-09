@@ -20,6 +20,11 @@ public class TaxPayment {
         Stream<String> lines = Files.lines(Paths.get(uri));
         lines.map(line -> {
             System.out.println("line = " + line);
+            Pattern pattern = Pattern.compile("\\d+");
+            Matcher matcher = pattern.matcher(line);
+            matcher.find();
+            int i = matcher.groupCount();
+            System.out.println("i = " + i);
             return 0;
         }).collect(Collectors.toList());
         int[][] input = new int[][] {
