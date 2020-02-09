@@ -17,17 +17,17 @@ public class TaxPayment {
 
     public String calculate() throws IOException, URISyntaxException {
         URI uri = getClass().getClassLoader().getResource("testData.txt").toURI();
-        Stream<String> lines = Files.lines(Paths.get(uri));
-        return lines.map(line -> {
-            System.out.println("line = " + line);
-            Pattern pattern = Pattern.compile("\\d+");
-            Matcher matcher = pattern.matcher(line);
-            matcher.find();
-            String distance = matcher.group();
-            matcher.find();
-            String time = matcher.group();
-            return new int[] { Integer.parseInt(distance), Integer.parseInt(time)};
-        }).map(array -> calc(array[0], array[1]))
+        return Files.lines(Paths.get(uri))
+                .map(line -> {
+                    Pattern pattern = Pattern.compile("\\d+");
+                    Matcher matcher = pattern.matcher(line);
+                    matcher.find();
+                    String distance = matcher.group();
+                    matcher.find();
+                    String time = matcher.group();
+                    return new int[]{Integer.parseInt(distance), Integer.parseInt(time)};
+                })
+                .map(array -> calc(array[0], array[1]))
                 .map(amount -> String.format("收费%d元", amount))
                 .collect(Collectors.joining("\n"));
     }
@@ -48,7 +48,7 @@ public class TaxPayment {
         if (distance <= 8) {
             return BASE_PRICE + (distance - 2) * 0.8;
         }
-        
+
         return (int) (distanceAmount(8) + (distance - 8) * 0.8 * 1.5);
     }
 }
