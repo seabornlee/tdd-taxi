@@ -18,7 +18,7 @@ public class TaxPayment {
     public String calculate() throws IOException, URISyntaxException {
         URI uri = getClass().getClassLoader().getResource("testData.txt").toURI();
         Stream<String> lines = Files.lines(Paths.get(uri));
-        lines.map(line -> {
+        return lines.map(line -> {
             System.out.println("line = " + line);
             Pattern pattern = Pattern.compile("\\d+");
             Matcher matcher = pattern.matcher(line);
