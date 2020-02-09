@@ -18,18 +18,20 @@ public class TaxPayment {
     public String calculate() throws IOException, URISyntaxException {
         URI uri = getClass().getClassLoader().getResource("testData.txt").toURI();
         return Files.lines(Paths.get(uri))
-                .map(line -> {
-                    Pattern pattern = Pattern.compile("\\d+");
-                    Matcher matcher = pattern.matcher(line);
-                    matcher.find();
-                    String distance = matcher.group();
-                    matcher.find();
-                    String time = matcher.group();
-                    return new int[]{Integer.parseInt(distance), Integer.parseInt(time)};
-                })
+                .map(this::extractDistanceAndTime)
                 .map(array -> calc(array[0], array[1]))
                 .map(amount -> String.format("收费%d元", amount))
                 .collect(Collectors.joining("\n"));
+    }
+
+    private int[] extractDistanceAndTime(String line) {
+        Pattern pattern = Pattern.compile("\\d+");
+        Matcher matcher = pattern.matcher(line);
+        matcher.find();
+        String distance = matcher.group();
+        matcher.find();
+        String time = matcher.group();
+        return new int[]{Integer.parseInt(distance), Integer.parseInt(time)};
     }
 
     public long calc(int distance, int waitTimeInMinutes) {
