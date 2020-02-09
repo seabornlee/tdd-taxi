@@ -24,8 +24,8 @@ public class TaxPayment {
             Matcher matcher = pattern.matcher(line);
             boolean b = matcher.find();
             System.out.println("b = " + b);
-            int i = matcher.groupCount();
-            System.out.println("i = " + i);
+            String group = matcher.group();
+            System.out.println("group = " + group);
             return 0;
         }).collect(Collectors.toList());
         int[][] input = new int[][] {
