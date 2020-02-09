@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,8 +17,12 @@ public class TaxPayment {
     public String calculate() throws IOException, URISyntaxException {
         URI uri = getClass().getClassLoader().getResource("testData.txt").toURI();
         Stream<String> lines = Files.lines(Paths.get(uri));
-        long count = lines.count();
-        System.out.println("count = " + count);
+        lines.map(line -> {
+            Pattern pattern = Pattern.compile("\\d");
+            String[] split = pattern.split(line);
+            System.out.println("split = " + split);
+            return 0;
+        });
         int[][] input = new int[][] {
                 {1, 0},
                 {3, 0},
