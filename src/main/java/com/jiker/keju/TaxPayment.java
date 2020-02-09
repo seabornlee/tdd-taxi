@@ -25,14 +25,17 @@ public class TaxPayment {
             return 7;
         }
 
+        return distanceAmount(distance);
+    }
+
+    private int distanceAmount(int distance) {
         if (distance <= 2) {
             return BASE_PRICE;
         }
 
-        if (distance > 8) {
-            return (int) (BASE_PRICE + 6 * 0.8 + (distance - 8) * 0.8 * 1.5);
+        if (distance <= 8) {
+            return (int) (BASE_PRICE + (distance - 2) * 0.8);
         }
-
-        return (int) (BASE_PRICE + (distance - 2) * 0.8);
+        return (int) (BASE_PRICE + 6 * 0.8 + (distance - 8) * 0.8 * 1.5);
     }
 }
