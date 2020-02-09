@@ -1,6 +1,8 @@
 package com.jiker.keju;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -10,8 +12,8 @@ public class TaxPayment {
 
     public static final int BASE_PRICE = 6;
 
-    public String calculate() throws IOException {
-        Files.lines(Paths.get("classpath:testData.txt"));
+    public String calculate() throws IOException, URISyntaxException {
+        Files.lines(Paths.get(new URI("testData.txt")));
         int[][] input = new int[][] {
                 {1, 0},
                 {3, 0},
