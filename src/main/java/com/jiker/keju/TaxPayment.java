@@ -1,34 +1,7 @@
 package com.jiker.keju;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
 public class TaxPayment {
     private static final int BASE_PRICE = 6;
-
-    public String calculate() throws IOException, URISyntaxException {
-        URI uri = getClass().getClassLoader().getResource("testData.txt").toURI();
-        return Files.lines(Paths.get(uri))
-                .map(this::extractDistanceAndTime)
-                .map(array -> calc(array[0], array[1]))
-                .map(amount -> String.format("收费%d元", amount))
-                .collect(Collectors.joining("\n"));
-    }
-
-    private int[] extractDistanceAndTime(String line) {
-        Matcher matcher = Pattern.compile("\\d+").matcher(line);
-        matcher.find();
-        String distance = matcher.group();
-        matcher.find();
-        String time = matcher.group();
-        return new int[]{Integer.parseInt(distance), Integer.parseInt(time)};
-    }
 
     public long calc(int distance, int waitTimeInMinutes) {
         return Math.round(distanceAmount(distance) + waitTimeAmount(waitTimeInMinutes));
