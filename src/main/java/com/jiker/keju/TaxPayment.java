@@ -28,7 +28,7 @@ public class TaxPayment {
             String group1 = matcher.group();
             System.out.println("group = " + group);
             System.out.println("group = " + group1);
-            return 0;
+            return new int[] { Integer.parseInt(group), Integer.parseInt(group1)};
         }).collect(Collectors.toList());
         int[][] input = new int[][] {
                 {1, 0},
