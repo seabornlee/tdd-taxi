@@ -20,7 +20,7 @@ public class TaxPayment {
         lines.map(line -> {
             Pattern pattern = Pattern.compile("\\d");
             String[] split = pattern.split(line);
-            System.out.println("split = " + split);
+            System.out.println("split = " + split[0]);
             return 0;
         }).collect(Collectors.toList());
         int[][] input = new int[][] {
