@@ -22,7 +22,7 @@ public class TaxPayment {
             String[] split = pattern.split(line);
             System.out.println("split = " + split);
             return 0;
-        });
+        }).collect(Collectors.toList());
         int[][] input = new int[][] {
                 {1, 0},
                 {3, 0},
