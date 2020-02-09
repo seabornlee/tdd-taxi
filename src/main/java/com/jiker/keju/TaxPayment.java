@@ -21,7 +21,11 @@ public class TaxPayment {
     }
 
     public int calc(int distance, int waitTimeInMinutes) {
-        return (int) (distanceAmount(distance) + waitTimeInMinutes * 0.25);
+        return (int) (distanceAmount(distance) + waitTimeAmount(waitTimeInMinutes));
+    }
+
+    private double waitTimeAmount(int waitTimeInMinutes) {
+        return waitTimeInMinutes * 0.25;
     }
 
     private double distanceAmount(int distance) {
