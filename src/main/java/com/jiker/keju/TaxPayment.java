@@ -1,5 +1,8 @@
 package com.jiker.keju;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -7,7 +10,8 @@ public class TaxPayment {
 
     public static final int BASE_PRICE = 6;
 
-    public String calculate() {
+    public String calculate() throws IOException {
+        Files.lines(Paths.get("testData.txt"));
         int[][] input = new int[][] {
                 {1, 0},
                 {3, 0},
