@@ -23,7 +23,6 @@ public class TaxPayment {
             Pattern pattern = Pattern.compile("\\d+");
             Matcher matcher = pattern.matcher(line);
             matcher.find();
-            System.out.println("b = " + b);
             String group = matcher.group();
             matcher.find();
             String group1 = matcher.group();
