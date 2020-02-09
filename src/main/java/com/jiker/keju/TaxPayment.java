@@ -22,7 +22,8 @@ public class TaxPayment {
             System.out.println("line = " + line);
             Pattern pattern = Pattern.compile("\\d+");
             Matcher matcher = pattern.matcher(line);
-            matcher.find();
+            boolean b = matcher.find();
+            System.out.println("b = " + b);
             int i = matcher.groupCount();
             System.out.println("i = " + i);
             return 0;
