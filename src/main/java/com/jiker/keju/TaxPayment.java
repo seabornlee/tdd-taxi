@@ -36,6 +36,7 @@ public class TaxPayment {
         if (distance <= 8) {
             return (int) (BASE_PRICE + (distance - 2) * 0.8);
         }
+        
         return (int) (BASE_PRICE + 6 * 0.8 + (distance - 8) * 0.8 * 1.5);
     }
 }
