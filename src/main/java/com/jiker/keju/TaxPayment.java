@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -19,8 +20,9 @@ public class TaxPayment {
         Stream<String> lines = Files.lines(Paths.get(uri));
         lines.map(line -> {
             Pattern pattern = Pattern.compile("\\d");
-            String[] split = pattern.split(line);
-            System.out.println("split = " + split[0]);
+            Matcher matcher = pattern.matcher(line);
+            int i = matcher.groupCount();
+            System.out.println("i = " + i);
             return 0;
         }).collect(Collectors.toList());
         int[][] input = new int[][] {
