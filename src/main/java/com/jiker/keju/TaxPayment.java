@@ -25,10 +25,10 @@ public class TaxPayment {
             return 7;
         }
 
-        return distanceAmount(distance);
+        return (int) distanceAmount(distance);
     }
 
-    private int distanceAmount(int distance) {
+    private double distanceAmount(int distance) {
         if (distance <= 2) {
             return BASE_PRICE;
         }
