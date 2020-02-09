@@ -22,10 +22,13 @@ public class TaxPayment {
             System.out.println("line = " + line);
             Pattern pattern = Pattern.compile("\\d+");
             Matcher matcher = pattern.matcher(line);
-            boolean b = matcher.find();
+            matcher.find();
             System.out.println("b = " + b);
             String group = matcher.group();
+            matcher.find();
+            String group1 = matcher.group();
             System.out.println("group = " + group);
+            System.out.println("group = " + group1);
             return 0;
         }).collect(Collectors.toList());
         int[][] input = new int[][] {
