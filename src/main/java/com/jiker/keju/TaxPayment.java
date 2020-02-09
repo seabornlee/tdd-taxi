@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TaxPayment {
 
@@ -14,7 +15,8 @@ public class TaxPayment {
 
     public String calculate() throws IOException, URISyntaxException {
         URI uri = getClass().getClassLoader().getResource("testData.txt").toURI();
-        long count = Files.lines(Paths.get(uri)).count();
+        Stream<String> lines = Files.lines(Paths.get(uri));
+        long count = lines.count();
         System.out.println("count = " + count);
         int[][] input = new int[][] {
                 {1, 0},
