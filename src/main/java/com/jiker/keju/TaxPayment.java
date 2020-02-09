@@ -11,7 +11,7 @@ public class TaxPayment {
     public static final int BASE_PRICE = 6;
 
     public String calculate() throws IOException {
-        Files.lines(Paths.get("testData.txt"));
+        Files.lines(Paths.get("classpath:testData.txt"));
         int[][] input = new int[][] {
                 {1, 0},
                 {3, 0},
