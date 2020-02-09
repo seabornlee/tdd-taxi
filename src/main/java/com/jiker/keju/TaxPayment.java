@@ -14,7 +14,8 @@ public class TaxPayment {
 
     public String calculate() throws IOException, URISyntaxException {
         URI uri = getClass().getClassLoader().getResource("testData.txt").toURI();
-        Files.lines(Paths.get(uri));
+        long count = Files.lines(Paths.get(uri)).count();
+        System.out.println("count = " + count);
         int[][] input = new int[][] {
                 {1, 0},
                 {3, 0},
