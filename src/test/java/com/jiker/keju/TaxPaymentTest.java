@@ -31,4 +31,10 @@ public class TaxPaymentTest {
         long amount = taxPayment.calc(7, 0);
         assertThat(amount).isEqualTo(10);
     }
+
+    @Test
+    public void _最后计价的时候司机会四舍五入只收到元() {
+        long amount = taxPayment.calc(3, 0);
+        assertThat(amount).isEqualTo(7);
+    }
 }
