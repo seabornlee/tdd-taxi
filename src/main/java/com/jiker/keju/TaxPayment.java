@@ -19,7 +19,7 @@ public class TaxPayment {
         URI uri = getClass().getClassLoader().getResource("testData.txt").toURI();
         Stream<String> lines = Files.lines(Paths.get(uri));
         lines.map(line -> {
-            Pattern pattern = Pattern.compile("\\d");
+            Pattern pattern = Pattern.compile("\\d+");
             Matcher matcher = pattern.matcher(line);
             int i = matcher.groupCount();
             System.out.println("i = " + i);
