@@ -27,15 +27,7 @@ public class TaxPayment {
             matcher.find();
             String time = matcher.group();
             return new int[] { Integer.parseInt(distance), Integer.parseInt(time)};
-        }).collect(Collectors.toList());
-        int[][] input = new int[][] {
-                {1, 0},
-                {3, 0},
-                {10, 0},
-                {2, 3}
-        };
-        return Arrays.asList(input).stream()
-                .map(array -> calc(array[0], array[1]))
+        }).map(array -> calc(array[0], array[1]))
                 .map(amount -> String.format("收费%d元", amount))
                 .collect(Collectors.joining("\n"));
     }
