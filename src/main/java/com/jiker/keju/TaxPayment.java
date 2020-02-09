@@ -13,7 +13,7 @@ public class TaxPayment {
     public static final int BASE_PRICE = 6;
 
     public String calculate() throws IOException, URISyntaxException {
-        Files.lines(Paths.get(new URI("testData.txt")));
+        Files.lines(Paths.get(new URI("classpath:testData.txt")));
         int[][] input = new int[][] {
                 {1, 0},
                 {3, 0},
