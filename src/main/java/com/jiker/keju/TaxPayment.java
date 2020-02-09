@@ -23,12 +23,10 @@ public class TaxPayment {
             Pattern pattern = Pattern.compile("\\d+");
             Matcher matcher = pattern.matcher(line);
             matcher.find();
-            String group = matcher.group();
+            String distance = matcher.group();
             matcher.find();
-            String group1 = matcher.group();
-            System.out.println("group = " + group);
-            System.out.println("group = " + group1);
-            return new int[] { Integer.parseInt(group), Integer.parseInt(group1)};
+            String time = matcher.group();
+            return new int[] { Integer.parseInt(distance), Integer.parseInt(time)};
         }).collect(Collectors.toList());
         int[][] input = new int[][] {
                 {1, 0},
