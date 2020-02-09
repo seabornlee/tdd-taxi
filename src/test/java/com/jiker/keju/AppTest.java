@@ -7,7 +7,7 @@ import java.net.URISyntaxException;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
-public class TaxTest {
+public class AppTest {
     @Test
     public void should_calculate_payment() throws IOException, URISyntaxException {
         String result = App.calculate();
