@@ -10,8 +10,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class TaxPayment {
-
-    public static final int BASE_PRICE = 6;
+    private static final int BASE_PRICE = 6;
 
     public String calculate() throws IOException, URISyntaxException {
         URI uri = getClass().getClassLoader().getResource("testData.txt").toURI();
@@ -23,8 +22,7 @@ public class TaxPayment {
     }
 
     private int[] extractDistanceAndTime(String line) {
-        Pattern pattern = Pattern.compile("\\d+");
-        Matcher matcher = pattern.matcher(line);
+        Matcher matcher = Pattern.compile("\\d+").matcher(line);
         matcher.find();
         String distance = matcher.group();
         matcher.find();
