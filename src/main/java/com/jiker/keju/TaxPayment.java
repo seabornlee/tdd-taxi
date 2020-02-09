@@ -20,8 +20,8 @@ public class TaxPayment {
                 .collect(Collectors.joining("\n"));
     }
 
-    public int calc(int distance, int waitTimeInMinutes) {
-        return (int) (distanceAmount(distance) + waitTimeAmount(waitTimeInMinutes));
+    public long calc(int distance, int waitTimeInMinutes) {
+        return Math.round(distanceAmount(distance) + waitTimeAmount(waitTimeInMinutes));
     }
 
     private double waitTimeAmount(int waitTimeInMinutes) {
