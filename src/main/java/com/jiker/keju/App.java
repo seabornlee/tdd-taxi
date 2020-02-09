@@ -10,10 +10,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class App {
-    public static void main(String[] args) throws IOException, URISyntaxException {
-        String result = calculate();
-        System.out.println(result);
-    }
 
     public static String calculate() throws IOException, URISyntaxException {
         URI uri = TaxPayment.class.getClassLoader().getResource("testData.txt").toURI();
