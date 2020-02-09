@@ -25,13 +25,14 @@ public class TaxPayment {
             return BASE_PRICE;
         }
 
+        if (distance > 8) {
+            return (int) (BASE_PRICE + 6 * 0.8 + (distance - 8) * 0.8 * 1.5);
+        }
+        
         if (distance > 2) {
             return (int) (BASE_PRICE + (distance - 2) * 0.8);
         }
 
-        if (distance > 8) {
-            return (int) (BASE_PRICE + 6 * 0.8 + (distance - 8) * 0.8 * 1.5);
-        }
 
         if (distance == 3 && waitTimeInMinutes == 0) {
             return 7;
